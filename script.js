@@ -35,3 +35,22 @@ function loop() {
     window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
+
+
+const greenBall = document.querySelector('.ball');
+
+let greenBallYPosition = 0;
+let greenBallYVelocity = 1;
+
+function ballMovement(){
+    greenBallYPosition = greenBallYPosition + greenBallYVelocity;
+    greenBallYPosition = greenBallYPosition % (GAME_AREA_WIDTH - BALL_SIZE)
+
+    greenBall.style.left = `${greenBallYPosition}px`;
+}
+
+function updateBall(){
+    ballMovement();
+    window.requestAnimationFrame(updateBall)
+}
+window.requestAnimationFrame(updateBall)
